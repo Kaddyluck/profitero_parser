@@ -5,10 +5,10 @@ require 'csv'
 require 'progress_bar'
 
 CATALOG = ARGV.first
-CSV_FILE = ARGV.last
+CSV_FILE = ARGV.last + ".csv"
 
 if ARGV.length !=2
-  	puts "Invalid input. Try 'ruby parser.rb -category_link -output_csv_file'"
+  	puts "Invalid input. Try 'ruby parser.rb category_link output_filename'"
   	exit
 end
 
@@ -59,7 +59,7 @@ prod_title = []
 prod_price = []
 prod_img = []
 
-puts "========== Parsing products =========="
+puts "=========== Parsing products ==========="
 category_bar = ProgressBar.new(product_page.count, :bar, :counter, :eta)
 
 product_page.each do |href|
